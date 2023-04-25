@@ -20,10 +20,15 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
+
+
+  // saving functon 'btn from class in html
 var saveButton = $(".btn")
 saveButton.on("click", function(e){
+  // stops code from running multipule times
   e.preventDefault()
 
+  // connecting button and text value to get local storage to work
   var buttonId = $(this).attr("id")
   var textValue = $(this).siblings(".description").val()
   localStorage.setItem(buttonId,textValue )
@@ -34,6 +39,7 @@ saveButton.on("click", function(e){
 
 displayText()
 
+// for loop to get every box saved to be in local stroage
 function displayText(){
   for (var i = 8; i < 18; i++){
     var textValue= localStorage.getItem(i)
@@ -44,10 +50,12 @@ function displayText(){
 
 var timeDisplayEl = $('#time-display');
 
-// handle displaying the time
+// displaying the time and date on the page using dayjs
 function displayTime() {
   var rightNow = dayjs().format('MMM DD, YYYY [at] hh:mm:ss a');
   timeDisplayEl.text(rightNow);
 }
 displayTime();
+
+// The speed that the time will update to user
 setInterval(displayTime, 1000);
