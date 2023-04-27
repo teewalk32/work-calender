@@ -23,30 +23,41 @@ $(function () {
 
 
   // saving functon 'btn from class in html
-var saveButton = $(".btn")
-saveButton.on("click", function(e){
-  // stops code from running multipule times
-  e.preventDefault()
+  var saveButton = $(".btn")
+  saveButton.on("click", function (e) {
+    // stops code from running multipule times
+    e.preventDefault()
 
-  // connecting button and text value to get local storage to work
-  var buttonId = $(this).attr("id")
-  var textValue = $(this).siblings(".description").val()
-  localStorage.setItem(buttonId,textValue )
-  console.log(buttonId, textValue)
+    // connecting button and text value to get local storage to work
+    var buttonId = $(this).attr("id")
+    var textValue = $(this).siblings(".description").val()
+    localStorage.setItem(buttonId, textValue)
+    console.log(buttonId, textValue)
 
 
-})
+  })
 
-displayText()
+  displayText()
 
-// for loop to get every box saved to be in local stroage
-function displayText(){
-  for (var i = 8; i < 18; i++){
-    var textValue= localStorage.getItem(i)
-    $("#" + i + "").text(textValue)
+  // for loop to get every box saved to be in local stroage
+  function displayText() {
+    for (var i = 8; i < 18; i++) {
+      var textValue = localStorage.getItem(i)
+      $("#" + i + "").text(textValue)
+    }
   }
-}
 });
+
+// set colors for time
+
+// function setColors() {
+//   var setColors = $()
+//   if hour - 8 set colors red
+//   {
+//     else
+//   }
+// set colors green
+// };
 
 var timeDisplayEl = $('#time-display');
 
